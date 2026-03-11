@@ -1,20 +1,19 @@
 package io.github.fatec.introducao.model;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name ="pessoa")
-
+@Document(collection = "pessoas")
 public class Pessoa {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String nome;
     private String telefone;
     private String endereco;
 
-    public Pessoa(){}
+    public Pessoa() {}
 
     public Pessoa(String nome, String telefone, String endereco) {
         this.nome = nome;
@@ -22,21 +21,31 @@ public class Pessoa {
         this.endereco = endereco;
     }
 
-    public Long getId() { return id; }
+    public String getId() {
+        return id;
+    }
 
-    public void setId(Long id) { this.id = id; }
+    public String getNome() {
+        return nome;
+    }
 
-    public String getNome() { return nome; }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public void setNome(String nome) { this.nome = nome; }
+    public String getTelefone() {
+        return telefone;
+    }
 
-    public String getTelefone() { return telefone; }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
-    public void setTelefone(String telefone) { this.telefone = telefone; }
+    public String getEndereco() {
+        return endereco;
+    }
 
-    public String getEndereco() { return endereco; }
-
-    public void setEndereco(String endereco) { this.endereco = endereco; }
-
-
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 }

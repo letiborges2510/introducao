@@ -31,7 +31,7 @@ public class PessoaService {
         return repository.save(pessoa);
     }
 
-    public Pessoa atualizar(Long id, PessoaRequest request) {
+    public Pessoa atualizar(String id, PessoaRequest request) {
         Pessoa pessoa = (Pessoa) repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Error: não encontrado, tente novamente!"));
 
@@ -42,7 +42,7 @@ public class PessoaService {
         return repository.save(pessoa);
     }
 
-    public String deletar(Long id) {
+    public String deletar(String id) {
         repository.deleteById(id);
 
         return "Usuário: " + id + "foi deletado com sucesso";
